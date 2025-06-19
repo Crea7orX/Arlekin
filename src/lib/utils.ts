@@ -10,10 +10,9 @@ export function formatCoordinates(latitude: number, longitude: number) {
 }
 
 export function extractVideoId(url: string) {
-  const match = url.match(
-    /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/,
-  );
-  return match?.[1];
+  return /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/.exec(
+    url,
+  )?.[1];
 }
 
 export function getLocationInfo(latitude: number, longitude: number) {
