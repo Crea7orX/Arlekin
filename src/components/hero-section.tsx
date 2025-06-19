@@ -12,13 +12,13 @@ export function HeroSection({
           Explore the World, One Pin at a Time
         </h2>
         <p className="text-muted-foreground max-w-3xl text-lg font-medium lg:max-w-5xl lg:text-3xl">
-          Join the global map of the Harlekin Festival 🌍 and share your
-          artistic spirit with the world 🎭 by choosing your location 📍 placing
-          a pin on the interactive map 🗺️ and adding a link to your video
-          participation. 🎥 Show where are you from and let your creativity
-          shine. 🌟 Become part of a worldwide community of performers dreamers
-          and storytellers. 🌐 Each pin tells a story, 📖 share it and inspire
-          others across the globe! 🌎
+          Join the global map of the Arlekin Festival 🌍 and share your artistic
+          spirit with the world 🎭 by choosing your location 📍 placing a pin on
+          the interactive map 🗺️ and adding a link to your video participation.
+          🎥 Show where are you from and let your creativity shine. 🌟 Become
+          part of a worldwide community of performers dreamers and storytellers.
+          🌐 Each pin tells a story, 📖 share it and inspire others across the
+          globe! 🌎
         </p>
       </div>
     </section>

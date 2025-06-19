@@ -6,7 +6,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Harlekin",
+  title: "Arlekin",
   description: "Discorver & Save Places",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };

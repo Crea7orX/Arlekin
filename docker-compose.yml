@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: harlekin
+    container_name: arlekin
     restart: always
     env_file: .env
     ports:
