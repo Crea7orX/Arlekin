@@ -138,7 +138,6 @@ export function WorldMap({ className, ...props }: React.ComponentProps<"div">) {
         open={showDialog}
         onOpenChange={setShowDialog}
         pendingPin={pendingPin}
-        setPendingPin={setPendingPin}
       />
     </>
   );

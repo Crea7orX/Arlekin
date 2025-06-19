@@ -28,15 +28,9 @@ import { useForm } from "react-hook-form";
 
 interface Props extends React.ComponentProps<typeof Dialog> {
   pendingPin: PendingPin | null;
-  setPendingPin: React.Dispatch<React.SetStateAction<PendingPin | null>>;
 }
 
-export function PinAddDialog({
-  children,
-  pendingPin,
-  setPendingPin,
-  ...props
-}: Props) {
+export function PinAddDialog({ children, pendingPin, ...props }: Props) {
   const { mutateAsync: createPin } = useCreatePinMutation();
 
   const [isLoading, setIsLoading] = React.useState(false);
