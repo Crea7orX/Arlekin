@@ -6,4 +6,9 @@ services:
     env_file: .env
     ports:
       - "${DOCKER_PORT:-3000}:3000"
+    volumes:
+      - arlekin_drizzle_data:/app/drizzle
     entrypoint: sh -c "corepack enable pnpm && pnpm run db:generate && pnpm run db:migrate && pnpm start"
+
+volumes:
+  arlekin_drizzle_data:
