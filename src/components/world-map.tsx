@@ -75,7 +75,7 @@ export function WorldMap({ className, ...props }: React.ComponentProps<"div">) {
       });
       setIconOwned(iconOwned);
     };
-    loadLeaflet();
+    void loadLeaflet();
     setIsReady(true);
   }, []);
 
