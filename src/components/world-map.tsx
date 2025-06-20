@@ -110,14 +110,19 @@ export function WorldMap({ className, ...props }: React.ComponentProps<"div">) {
     <>
       <div className={cn("relative h-full w-full overflow-hidden", className)}>
         <MapContainer
-          center={[20, 0]}
-          zoom={2}
+          center={[42.7389, 25.2342]}
+          zoom={7}
           style={{ height: "100%", width: "100%" }}
           className="z-0 rounded-b-xl"
+          maxBounds={[
+            [-90, -180],
+            [90, 180],
+          ]}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            noWrap={true}
           />
           <MapClickHandler onMapClick={handleMapClick} />
           {pins.map((pin) => (
