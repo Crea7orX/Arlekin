@@ -80,6 +80,9 @@ export function WorldMap({ className, ...props }: React.ComponentProps<"div">) {
   }, []);
 
   const handleMapClick = (latitude: number, longitude: number) => {
+    if (latitude < -90 || latitude > 90) return;
+    if (longitude < -180 || longitude > 180) return;
+
     if (!isSignedIn) {
       clerk.openSignIn();
       return;

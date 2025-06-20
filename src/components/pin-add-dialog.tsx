@@ -47,8 +47,8 @@ export function PinAddDialog({ children, pendingPin, ...props }: Props) {
       const toastId = toast.loading("Creating pin...");
       createPin({
         ...data,
-        latitude: pendingPin.latitude % 90,
-        longitude: pendingPin.longitude % 180,
+        latitude: pendingPin.latitude,
+        longitude: pendingPin.longitude,
       })
         .then(() => {
           toast.success("Pin created successfully!", {
