@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 import {
   ClerkLoading,
@@ -35,7 +36,8 @@ export function Header({
             <p className="font-medium">Discorver & Save Places</p>
           </div>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
           <SignedOut>
             <SignInButton mode="modal">
               <Button>Login</Button>
