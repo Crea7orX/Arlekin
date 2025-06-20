@@ -13,7 +13,7 @@
 Тази документация е налична на следните езици:
 
 - [![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
-- [![bg](https://img.shields.io/badge/lang-bg-green.svg)](./README.md)
+- [![bg](https://img.shields.io/badge/lang-bg-green.svg)](./README.bg.md)
 
 ---
 
