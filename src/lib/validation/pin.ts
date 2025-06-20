@@ -7,8 +7,8 @@ export const pinCreateSchema = z.object({
     .url()
     .refine(
       (url) =>
-        !!url.match(
-          /(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/,
+        !!/(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?/.exec(
+          url,
         ),
       "Invalid YouTube video URL",
     ),

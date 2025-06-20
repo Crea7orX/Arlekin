@@ -1,12 +1,12 @@
 import { ApiProvider } from "@/components/providers/api-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "Harlekin",
+  title: "Arlekin",
   description: "Discorver & Save Places",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
@@ -23,7 +23,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
         <body className="bg-background">
-          <ApiProvider>{children}</ApiProvider>
+          <ApiProvider>
+            {children}
+            <Toaster />
+          </ApiProvider>
         </body>
       </html>
     </ClerkProvider>

@@ -25,18 +25,13 @@ import { DialogTrigger } from "@radix-ui/react-dialog";
 import { MapPin, Navigation, Sparkles } from "lucide-react";
 import * as React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 interface Props extends React.ComponentProps<typeof Dialog> {
   pendingPin: PendingPin | null;
-  setPendingPin: React.Dispatch<React.SetStateAction<PendingPin | null>>;
 }
 
-export function PinAddDialog({
-  children,
-  pendingPin,
-  setPendingPin,
-  ...props
-}: Props) {
+export function PinAddDialog({ children, pendingPin, ...props }: Props) {
   const { mutateAsync: createPin } = useCreatePinMutation();
 
   const [isLoading, setIsLoading] = React.useState(false);
@@ -49,14 +44,26 @@ export function PinAddDialog({
   const onSubmit = async (data: PinCreate) => {
     if (pendingPin) {
       setIsLoading(true);
-      await createPin({
+      const toastId = toast.loading("Creating pin...");
+      createPin({
         ...data,
-        latitude: pendingPin.latitude % 90,
-        longitude: pendingPin.longitude % 180,
-      });
-      props.onOpenChange?.(false);
+        latitude: pendingPin.latitude,
+        longitude: pendingPin.longitude,
+      })
+        .then(() => {
+          toast.success("Pin created successfully!", {
+            id: toastId,
+          });
+
+          props.onOpenChange?.(false);
+          form.reset();
+        })
+        .catch(() => {
+          toast.error("Failed to create pin!", {
+            id: toastId,
+          });
+        });
       setIsLoading(false);
-      form.reset();
     }
   };
 

@@ -15,10 +15,6 @@ export function StatisticsSection({
   const { user, isLoaded } = useUser();
 
   const { data: pins } = useGetAllPinsQuery({});
-  const myPins = React.useMemo(() => {
-    if (!isLoaded || !user || !pins) return [];
-    return pins.filter((pin) => pin.userId === user.id) ?? [];
-  }, [isLoaded, user, pins]);
 
   const totalPins = React.useMemo(() => {
     if (!pins) return 0;

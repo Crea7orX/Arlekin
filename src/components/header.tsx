@@ -25,13 +25,13 @@ export function Header({
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/assets/logo.png"
-            alt="Harlekin"
+            alt="Arlekin"
             width={512}
             height={512}
             className="size-10 md:size-16 lg:size-20"
           />
           <div className="text-primary flex flex-col">
-            <h1 className="text-2xl font-bold">Harlekin</h1>
+            <h1 className="text-2xl font-bold">Arlekin</h1>
             <p className="font-medium">Discorver & Save Places</p>
           </div>
         </Link>

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useDeletePinMutation } from "@/hooks/api/use-delete-pin-mutation";
 import { Trash } from "lucide-react";
 import * as React from "react";
+import { toast } from "sonner";
 
 interface Props extends React.ComponentProps<typeof AlertDialog> {
   id: string;
@@ -26,8 +27,20 @@ export function PinDeleteAlertDialog({ children, id, ...props }: Props) {
 
   const handleDelete = async () => {
     setIsLoading(true);
-    await deletePin();
-    props.onOpenChange?.(false);
+    const toastId = toast.loading("Deleting pin...");
+    await deletePin()
+      .then(() => {
+        toast.warning("Pin deleted successfully!", {
+          id: toastId,
+        });
+
+        props.onOpenChange?.(false);
+      })
+      .catch(() => {
+        toast.error("Failed to delete pin!", {
+          id: toastId,
+        });
+      });
     setIsLoading(false);
   };
 
@@ -43,8 +56,12 @@ export function PinDeleteAlertDialog({ children, id, ...props }: Props) {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <Button variant="destructive" onClick={handleDelete}>
+          <AlertDialogCancel disabled={isLoading}>Cancel</AlertDialogCancel>
+          <Button
+            variant="destructive"
+            onClick={handleDelete}
+            disabled={isLoading}
+          >
             <Trash className="size-4" />
             Remove
           </Button>

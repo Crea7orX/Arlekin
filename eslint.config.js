@@ -11,6 +11,7 @@ export default tseslint.config(
   {
     ignores: [".next"],
   },
+  // @ts-ignore
   ...compat.extends("next/core-web-vitals"),
   {
     files: ["**/*.ts", "**/*.tsx"],

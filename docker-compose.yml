@@ -1,9 +1,36 @@
 services:
+  postgres:
+    image: postgres:17.2
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: arlekin
+      POSTGRES_USER: arlekin
+      POSTGRES_PASSWORD: arlekin
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - internal
+
   app:
     build: .
-    container_name: harlekin
+    container_name: arlekin
     restart: always
     env_file: .env
     ports:
       - "${DOCKER_PORT:-3000}:3000"
+    volumes:
+      - drizzle-data:/app/drizzle
     entrypoint: sh -c "corepack enable pnpm && pnpm run db:generate && pnpm run db:migrate && pnpm start"
+    depends_on:
+      - postgres
+    networks:
+      - internal
+
+volumes:
+  postgres-data:
+  drizzle-data:
+
+networks:
+  internal:
+    driver: bridge
