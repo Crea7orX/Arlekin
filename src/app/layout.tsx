@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { type Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
 
 export const metadata: Metadata = {
@@ -21,11 +22,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${geist.variable}`}>
+      <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
         <body className="bg-background flex min-h-dvh flex-col">
           <ApiProvider>
-            {children}
-            <Toaster />
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+              <Toaster />
+            </ThemeProvider>
           </ApiProvider>
         </body>
       </html>
