@@ -13,7 +13,7 @@ This project was created for the International Festival Arlekin.
 This documentation is available in the following languages:
 
 - [![en](https://img.shields.io/badge/lang-en-green.svg)](./README.md)
-- [![bg](https://img.shields.io/badge/lang-bg-red.svg)](./README.md)
+- [![bg](https://img.shields.io/badge/lang-bg-red.svg)](./README.bg.md)
 
 ---
 
