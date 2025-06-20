@@ -165,4 +165,4 @@ docker-compose down --volumes
 
 ## 📄 License
 
-This project is open-source under the GNU 3 License.
+This project is open-source under the GNU GPL-3 License.
