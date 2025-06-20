@@ -1,7 +1,6 @@
-import { ApiProvider } from "@/components/providers/api-provider";
+import { ProvidersWithoutTheme } from "@/components/providers/providers-without-theme";
 import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { type Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist } from "next/font/google";
@@ -21,22 +20,20 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
-        <body className="bg-background flex min-h-dvh flex-col">
-          <ApiProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-              <Toaster />
-            </ThemeProvider>
-          </ApiProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
+      <body className="bg-background flex min-h-dvh flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ProvidersWithoutTheme>
+            {children}
+            <Toaster />
+          </ProvidersWithoutTheme>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
