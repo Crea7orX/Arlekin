@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
-        <body className="bg-background">
+        <body className="bg-background flex min-h-dvh flex-col">
           <ApiProvider>
             {children}
             <Toaster />
