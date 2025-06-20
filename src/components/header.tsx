@@ -36,7 +36,7 @@ export function Header({
             <p className="font-medium">Discorver & Save Places</p>
           </div>
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <ThemeToggle />
           <SignedOut>
             <SignInButton mode="modal">
