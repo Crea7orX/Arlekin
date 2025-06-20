@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
 import { MapSection } from "@/components/map-section";
@@ -14,6 +15,7 @@ export default function HomePage() {
         <PinsSection className="p-2 md:px-6" />
         <StatisticsSection className="p-2 md:px-6" />
       </main>
+      <Footer className="mt-auto p-2 md:px-6" />
     </>
   );
 }
